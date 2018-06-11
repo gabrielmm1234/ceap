@@ -16,6 +16,13 @@ class CeapTseController < ApplicationController
     render json: response
   end
 
+  def deputy_by_number_of_transactions
+    encoded_url = URI.encode('http://localhost:2481/query/CotasParlamentares/sql/select TxNomeParlamentar, SgPartido, out("RealizaTransacao").size() as transacoes from Parlamentar order by transacoes desc limit 10')
+    response = HTTParty.get(encoded_url, basic_auth: auth)
+
+    render json: response
+  end
+
   private
 
   def auth

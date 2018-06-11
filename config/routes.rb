@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :ceap_tse, only: [:index]
 
   get '/deputy_by_group' => 'ceap_tse#deputy_by_group'
+  get '/deputy_by_number_of_transactions' => 'ceap_tse#deputy_by_number_of_transactions'
 end
