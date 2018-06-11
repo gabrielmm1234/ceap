@@ -8,4 +8,17 @@ class CeapTseController < ApplicationController
     response = HTTParty.get('http://localhost:2481/class/CotasParlamentares/Transacao', basic_auth: auth)
     @transacoes_count = JSON.parse(response.body)["records"]
   end
+
+  def deputy_by_group
+    encoded_url = URI.encode("http://localhost:2481/query/CotasParlamentares/sql/select SgPartido, count(SgPartido) from Parlamentar GROUP BY SgPartido")
+    response = HTTParty.get(encoded_url, basic_auth: auth)
+
+    render json: response
+  end
+
+  private
+
+  def auth
+    return { username: "admin", password: "admin" }
+  end
 end
