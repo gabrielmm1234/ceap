@@ -48,24 +48,6 @@ $( document ).ready(function() {
     type: "GET",
     url: "/deputy_by_number_of_transactions",
     success: function(data){
-      // Radialize the colors
-      Highcharts.setOptions({
-         colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-             return {
-                 radialGradient: {
-                     cx: 0.5,
-                     cy: 0.3,
-                     r: 0.7
-                 },
-                 stops: [
-                     [0, color],
-                     [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
-                 ]
-             };
-         })
-      });
-
-      // Build the chart
       Highcharts.chart('container-deputy-transaction', {
          chart: {
              plotBackgroundColor: null,
@@ -97,5 +79,53 @@ $( document ).ready(function() {
          }]
       });
     }
+  });
+
+  $.ajax({
+  type: "GET",
+  url: "/enterprise_by_number_of_transactions",
+  success: function(data){
+    Highcharts.chart('container-enterprise-transaction', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: '15 maiores empresas fornecedoras'
+        },
+        subtitle: {
+            text: 'Empresas que mais forneceram serviços a deputados'
+        },
+        xAxis: {
+            categories: [],
+            title: {
+                text: null
+            },
+            labels: {
+              enabled:false
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Serviços prestados',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: data["result"].map(function(item) { return {name: item["TxtFornecedor"], data: [item["servicos"]]} })
+    });
+  }
   });
 });

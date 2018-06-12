@@ -23,6 +23,14 @@ class CeapTseController < ApplicationController
     render json: response
   end
 
+  def enterprise_by_number_of_transactions
+    encoded_url = URI.encode('http://localhost:2481/query/CotasParlamentares/sql/select TxtFornecedor, in("FornecidaPor").size() as servicos from EmpresaFornecedora order by servicos desc limit 15')
+    response = HTTParty.get(encoded_url, basic_auth: auth)
+
+    render json: response
+
+  end
+
   private
 
   def auth
