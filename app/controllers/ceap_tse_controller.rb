@@ -28,7 +28,13 @@ class CeapTseController < ApplicationController
     response = HTTParty.get(encoded_url, basic_auth: auth)
 
     render json: response
+  end
 
+  def donations_ceap_tse
+    encoded_url = URI.encode('http://localhost:2481/query/CotasParlamentares/sql/MATCH {class:Parlamentar, as:p} -RealizaTransacao-> {class:Transacao, as:t} -FornecidaPor-> {class:EmpresaFornecedora, as:e}, {as:e} -RealizaTransacao-> {class:Transacao, as:t2} -FornecidaPara-> {as:p} RETURN $elements limit 500')
+    response = HTTParty.get(encoded_url, basic_auth: auth)
+
+    render json: response
   end
 
   private

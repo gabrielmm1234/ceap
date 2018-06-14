@@ -1,5 +1,13 @@
 $( document ).ready(function() {
 
+  $.ajax({
+    type: "GET",
+    url: "/donations_ceap_tse",
+    success: function(data){
+      console.log(data)
+    }
+  });
+
     // Let's first initialize sigma:
     var s = new sigma('container-graph');
 
