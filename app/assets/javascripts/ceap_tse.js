@@ -87,8 +87,12 @@ $( document ).ready(function() {
           }
         }
       })
+      s.graph.nodes().forEach(function(node, i, a) {
+        node.x = Math.cos(Math.PI * 2 * i / a.length);
+        node.y = Math.sin(Math.PI * 2 * i / a.length);
+      });
       s.refresh();
-      s.startForceAtlas2({worker: true,adjustSizes:true,scalingRatio: 1,outboundAttractionDistribution:true});
+      s.startForceAtlas2({worker: true, adjustSizes:true, scalingRatio: 1});
     }
   });
 

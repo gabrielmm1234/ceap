@@ -92,8 +92,21 @@
     <div id="container-enterprise-transaction" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
   </div>
 
+  <hr>
+
   <div class="section">
+    <h4 class="header center orange-text">Grafo de cruzamento dos dados entre CEAP e TSE</h4>
+    <h5 class="header col s12 light" style="text-align: justify;">
+      O grafo abaixo apresenta os parlamentares que fizeram transações com a CEAP em 2017,
+      e receberam doações para suas campanhas em 2014. Os vértices laranjas representam uma transação,
+      um vértice vermelho representa uma empresa fornecedora, e um vértice azul representa um parlamentar.
+    </h5>
     <div id="container-graph"></div>
+
+    <p class="header col s12 light" style="text-align: justify;">Deputados obtidos</p>
+    <% @deputies_in_donations_name.each do |name| %>
+      <p><%= name["p_TxNomeParlamentar"] %></p>
+    <% end %>
   </div>
   <br><br>
 </div>
