@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   get '/frauds' => 'frauds#index'
   get '/ceap_fraud_deputies_partners' => 'frauds#ceap_fraud_deputies_partners'
+  get '/ceap_fraud_deputies_relatives' => 'frauds#ceap_fraud_deputies_relatives'
 end

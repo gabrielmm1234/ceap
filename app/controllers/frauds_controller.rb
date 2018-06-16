@@ -9,6 +9,13 @@ class FraudsController < ApplicationController
     render json: response
   end
 
+  def ceap_fraud_deputies_relatives
+    encoded_url = URI.encode('http://localhost:2481/query/CotasParlamentares/sql/MATCH {class:Parlamentar, as:p} -RealizaTransacao-> {class:Transacao, as:t} -FornecidaPor-> {class:EmpresaFornecedora, as:e},{as:p} -Parente_De-> {class:Pessoa, as:p2} -Socio_De-> {as:e} RETURN $elements')
+    response = HTTParty.get(encoded_url, basic_auth: auth)
+
+    render json: response
+  end
+
   private
 
   def auth
