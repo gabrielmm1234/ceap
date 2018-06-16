@@ -2,8 +2,8 @@
   #container-graph {
     border-style: solid;
     border-color: #39b7f6;
-    max-width: 400px;
-    height: 400px;
+    max-width: 600px;
+    height: 600px;
     margin: auto;
   }
 </style>
@@ -103,9 +103,9 @@
     </h5>
     <div id="container-graph"></div>
 
-    <p class="header col s12 light" style="text-align: justify;">Deputados obtidos</p>
+    <p class="header col s12 light" style="text-align: justify;">Deputados e Empresas obtidos</p>
     <% @deputies_in_donations_name.each do |name| %>
-      <p><%= name["p_TxNomeParlamentar"] %></p>
+      <p><%= name["p_TxNomeParlamentar"] + " - " + name["e_TxtFornecedor"] %></p>
     <% end %>
   </div>
   <br><br>
