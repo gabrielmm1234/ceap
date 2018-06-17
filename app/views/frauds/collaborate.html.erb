@@ -14,15 +14,77 @@
 
 <div class="container">
   <div class="section">
-    <%= simple_form_for @deputy_partnership do |f| %>
-      <div class="input-field">
-        <%= f.input :deputy_rid, collection: @deputies, as: :select, label: :deputado, class: "active"  %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-content">
+            <%= simple_form_for @deputy_partnership do |f| %>
+              <label>Deputado</label>
+              <div class="input-field">
+                <%= f.input :deputy_rid, collection: @deputies, as: :select, label: "-"  %>
+              </div>
+              <p>É sócio da</p>
+              <label>Empresa</label>
+              <div class="input-field">
+                <%= f.input :company_associated_rid, collection: @companies, as: :select, label: "-"  %>
+              </div>
+              <%= f.button :submit, "Enviar colaboração" %>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <p>É sócio da empresa</p>
-      <div class="input-field">
-        <%= f.input :company_associated_rid, collection: @companies, as: :select, label: :empresa  %>
-      </div>
-      <%= f.button :submit, "Enviar colaboração" %>
-    <% end %>
+    </div>
   </div>
+  <hr>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-content">
+            <%= simple_form_for @deputy_relative do |f| %>
+              <div class="input-field">
+                <%= f.input :deputy_relative_name, label: "Nome parente"  %>
+              </div>
+              <p>É parente do</p>
+              <label>Deputado</label>
+              <div class="input-field">
+                <%= f.input :deputy_rid, collection: @deputies, as: :select, label: "-"  %>
+              </div>
+              <%= f.button :submit, "Enviar colaboração" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-content">
+            <%= simple_form_for @relative_partnership do |f| %>
+              <label>Parente</label>
+              <div class="input-field">
+                <%= f.input :relative_rid, collection: @relatives, as: :select, label: "-"  %>
+              </div>
+              <p>É sócio da</p>
+              <label>Empresa</label>
+              <div class="input-field">
+                <%= f.input :company_associated_rid, collection: @companies, as: :select, label: "-"  %>
+              </div>
+              <%= f.button :submit, "Enviar colaboração" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
 </div>

@@ -4,6 +4,8 @@ class FraudsController < ApplicationController
 
   def collaborate
     @deputy_partnership = DeputyPartnership.new
+    @deputy_relative = DeputyRelative.new
+    @relative_partnership = RelativePartnership.new
 
     encoded_url = URI.encode('http://localhost:2481/query/CotasParlamentares/sql/select TxNomeParlamentar, @rid from Parlamentar')
     deputies_response = HTTParty.get(encoded_url, basic_auth: auth)
@@ -19,6 +21,14 @@ class FraudsController < ApplicationController
     @companies = []
     companies_response["result"].each do |company|
       @companies << [company["TxtFornecedor"], company["rid"]]
+    end
+
+    encoded_url = URI.encode('http://localhost:2481/query/CotasParlamentares/sql/select nome, @rid from Pessoa')
+    relatives_response = HTTParty.get(encoded_url, basic_auth: auth)
+
+    @relatives = []
+    relatives_response["result"].each do |relative|
+      @relatives << [relative["nome"], relative["rid"]]
     end
   end
 

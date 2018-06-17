@@ -1,0 +1,2 @@
+class RelativePartnership < ApplicationRecord
+end

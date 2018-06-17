@@ -1,0 +1,2 @@
+class DeputyRelative < ApplicationRecord
+end
