@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/donations_ceap_tse' => 'ceap_tse#donations_ceap_tse'
 
   get '/frauds' => 'frauds#index'
+  get '/collaborate' => 'frauds#collaborate', as: :collaborate
   get '/ceap_fraud_deputies_partners' => 'frauds#ceap_fraud_deputies_partners'
   get '/ceap_fraud_deputies_relatives' => 'frauds#ceap_fraud_deputies_relatives'
+
+  resources :deputy_partnerships, only: [:create]
 end

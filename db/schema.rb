@@ -10,6 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180617201954) do
+
+  create_table "deputy_partnerships", force: :cascade do |t|
+    t.string   "deputy_name"
+    t.string   "deputy_rid"
+    t.string   "company_associated_name"
+    t.string   "company_associated_rid"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
 end

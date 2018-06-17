@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deputy_name: MyString
+  deputy_rid: MyString
+  company_associated_name: MyString
+  company_associated_rid: MyString
+
+two:
+  deputy_name: MyString
+  deputy_rid: MyString
+  company_associated_name: MyString
+  company_associated_rid: MyString

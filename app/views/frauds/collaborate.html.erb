@@ -1,0 +1,28 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
+    <h2 class="header center orange-text">Colabore com a CEAP</h2>
+    <div class="row center">
+      <h5 class="header col s12 light">
+        Abaixo se encontram campos para que você possa fornecer informações que potencializam
+        a análise de fraudes feitas pelo sistema. É possível informar se um deputado é sócio de uma empresa,
+        os parentes de um deputado e se esse parente é sócio de alguma empresa cadastrada.
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <%= simple_form_for @deputy_partnership do |f| %>
+      <div class="input-field">
+        <%= f.input :deputy_rid, collection: @deputies, as: :select, label: :deputado, class: "active"  %>
+      </div>
+      <p>É sócio da empresa</p>
+      <div class="input-field">
+        <%= f.input :company_associated_rid, collection: @companies, as: :select, label: :empresa  %>
+      </div>
+      <%= f.button :submit, "Enviar colaboração" %>
+    <% end %>
+  </div>
+</div>
