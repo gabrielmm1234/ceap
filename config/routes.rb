@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   get '/ceap_fraud_deputies_partners' => 'frauds#ceap_fraud_deputies_partners'
   get '/ceap_fraud_deputies_relatives' => 'frauds#ceap_fraud_deputies_relatives'
 
-  get '/collaborations' => 'collaborations#index'
+  get '/collaborations' => 'collaborations#index', as: :collaborations
+  delete '/reject_deputy_partnership/:id' => 'collaborations#reject_deputy_partnership', as: :reject_deputy_partnership
+  delete '/reject_deputy_relative/:id' => 'collaborations#reject_deputy_relative', as: :reject_deputy_relative
+  delete '/reject_relative_partnership/:id' => 'collaborations#reject_relative_partnership', as: :reject_relative_partnership
 
   resources :deputy_partnerships, only: [:create]
   resources :deputy_relatives, only: [:create]
