@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/ceap_fraud_deputies_partners' => 'frauds#ceap_fraud_deputies_partners'
   get '/ceap_fraud_deputies_relatives' => 'frauds#ceap_fraud_deputies_relatives'
 
+  get '/collaborations' => 'collaborations#index'
+
   resources :deputy_partnerships, only: [:create]
   resources :deputy_relatives, only: [:create]
   resources :relative_partnerships, only: [:create]

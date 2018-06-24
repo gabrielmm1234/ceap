@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="section">
+    <p>deputado_rid - empresa_rid</p>
+    <% @deputy_partnerships.each do |partnership| %>
+      <p><%= partnership.deputy_rid + " - " + partnership.company_associated_rid %></p>
+      <button>Aceitar</button>
+      <button>Rejeitar</button>
+      <hr>
+    <% end %>
+  </div>
+
+  <div class="section">
+    <p>nome_parente - deputado_rid</p>
+    <% @deputy_relatives.each do |relative| %>
+      <p><%= relative.deputy_relative_name + " - " + relative.deputy_rid %></p>
+      <button>Aceitar</button>
+      <button>Rejeitar</button>
+      <hr>
+    <% end %>
+  </div>
+
+  <div class="section">
+    <p>relative_rid - company_associated_rid</p>
+    <% @relative_partnerships.each do |partnership| %>
+      <p><%= partnership.relative_rid + " - " + partnership.company_associated_rid %></p>
+      <button>Aceitar</button>
+      <button>Rejeitar</button>
+      <hr>
+    <% end %>
+  </div>
+</div>
