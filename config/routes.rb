@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :deputy_partnerships, only: [:create]
   resources :deputy_relatives, only: [:create]
   resources :relative_partnerships, only: [:create]
+  devise_for :users
 end

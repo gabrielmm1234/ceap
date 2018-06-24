@@ -21,11 +21,19 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="/ceap_tse">CEAP / TSE</a></li>
           <li><a href="/frauds">Fraudes</a></li>
+          <%- if user_signed_in? %>
+            <li><a href="#">Colaborações</a></li>
+            <li><a href="/users/sign_out" data-method="delete" rel="nofollow">logout</a></li>
+          <% end %>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
           <li><a href="/ceap_tse">CEAP / TSE</a></li>
           <li><a href="/frauds">Fraudes</a></li>
+          <%- if user_signed_in? %>
+            <li><a href="#">Colaborações</a></li>
+            <li><a href="/users/sign_out" data-method="delete" rel="nofollow">logout</a></li>
+          <% end %>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
