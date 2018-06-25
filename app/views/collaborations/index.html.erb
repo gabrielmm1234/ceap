@@ -3,8 +3,8 @@
     <p>deputado_rid - empresa_rid</p>
     <% @deputy_partnerships.each do |partnership| %>
       <p><%= partnership.deputy_rid + " - " + partnership.company_associated_rid %></p>
-      <button>Aceitar</button>
-      <%= button_to "rejeitar", reject_deputy_partnership_path(partnership), :method => "delete" %>
+      <%= button_to "Aceitar", accept_deputy_partnership_path(partnership), :method => "post" %>
+      <%= button_to "Rejeitar", reject_deputy_partnership_path(partnership), :method => "delete" %>
       <hr>
     <% end %>
   </div>
@@ -14,7 +14,7 @@
     <% @deputy_relatives.each do |relative| %>
       <p><%= relative.deputy_relative_name + " - " + relative.deputy_rid %></p>
       <button>Aceitar</button>
-      <%= button_to "rejeitar", reject_deputy_relative_path(relative), :method => "delete" %>
+      <%= button_to "Rejeitar", reject_deputy_relative_path(relative), :method => "delete" %>
       <hr>
     <% end %>
   </div>
@@ -24,7 +24,7 @@
     <% @relative_partnerships.each do |partnership| %>
       <p><%= partnership.relative_rid + " - " + partnership.company_associated_rid %></p>
       <button>Aceitar</button>
-      <%= button_to "rejeitar", reject_relative_partnership_path(partnership), :method => "delete" %>
+      <%= button_to "Rejeitar", reject_relative_partnership_path(partnership), :method => "delete" %>
       <hr>
     <% end %>
   </div>

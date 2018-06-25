@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/ceap_fraud_deputies_relatives' => 'frauds#ceap_fraud_deputies_relatives'
 
   get '/collaborations' => 'collaborations#index', as: :collaborations
+  post '/accept_deputy_partnership/:id' => 'collaborations#accept_deputy_partnership', as: :accept_deputy_partnership
   delete '/reject_deputy_partnership/:id' => 'collaborations#reject_deputy_partnership', as: :reject_deputy_partnership
   delete '/reject_deputy_relative/:id' => 'collaborations#reject_deputy_relative', as: :reject_deputy_relative
   delete '/reject_relative_partnership/:id' => 'collaborations#reject_relative_partnership', as: :reject_relative_partnership
